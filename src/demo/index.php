@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script async defer data-website-id="67c2c82b-ff72-4b20-8c9f-550812c0f2d8" src="https://umami-magiclike.vercel.app/umami.js"></script>
+    <script async defer data-website-id="67c2c82b-ff72-4b20-8c9f-550812c0f2d8" src="https://umami.magiclike.vercel.app/magiclytics.js"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
