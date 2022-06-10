@@ -3,7 +3,7 @@
 $THEMES = include "../themes.php";
 $TRANSLATIONS = include "../translations.php";
 // Get the keys of the first value in the translations array
-$LOCALES = array_keys(reset($TRANSLATIONS));
+$LOCALES = array_keys($TRANSLATIONS);
 
 ?>
 
@@ -77,6 +77,7 @@ $LOCALES = array_keys(reset($TRANSLATIONS));
 
                 <label for="date_format">Date Format</label>
                 <select class="param" id="date_format" name="date_format">
+                    <option value="">default</option>
                     <option value="M j[, Y]">Aug 10, 2016</option>
                     <option value="j M[ Y]">10 Aug 2016</option>
                     <option value="[Y ]M j">2016 Aug 10</option>
@@ -103,7 +104,7 @@ $LOCALES = array_keys(reset($TRANSLATIONS));
                         </select>
                         <button class="plus btn" onclick="return preview.addProperty();">+</button>
                     </div>
-                    <button class="btn" type="button" onclick='return exportPhp()'>Export to PHP</button>
+                    <button class="btn" type="button" onclick='return preview.exportPhp()'>Export to PHP</button>
                     <textarea id="exportedPhp" hidden></textarea>
 
                 </details>

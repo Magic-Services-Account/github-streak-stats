@@ -14,7 +14,7 @@ function getContributionGraphs(string $user): array
     // Get the years the user has contributed
     $contributionYears = getContributionYears($user);
     // build a list of individual requests
-    $requests = array();
+    $requests = [];
     foreach ($contributionYears as $year) {
         // create query for year
         $start = "$year-01-01T00:00:00Z";
@@ -53,7 +53,7 @@ function getContributionGraphs(string $user): array
     }
     curl_multi_close($multi);
     // collect responses from last to first
-    $response = array();
+    $response = [];
     foreach ($requests as $request) {
         array_unshift($response, json_decode(curl_multi_getcontent($request)));
     }
@@ -65,13 +65,14 @@ function getContributionGraphs(string $user): array
  * 
  * @return array<string> List of tokens
  */
-function getGitHubTokens() {
+function getGitHubTokens()
+{
     // result is already calculated
     if (isset($GLOBALS["ALL_TOKENS"])) {
         return $GLOBALS["ALL_TOKENS"];
     }
     // find all tokens in environment variables
-    $tokens = array($_SERVER["TOKEN"] ?? "");
+    $tokens = isset($_SERVER["TOKEN"]) ? [$_SERVER["TOKEN"]] : [];
     for ($i = 2; $i < 4; $i++) {
         if (isset($_SERVER["TOKEN$i"])) {
             // add token to list
@@ -93,13 +94,13 @@ function getGraphQLCurlHandle(string $query)
 {
     $all_tokens = getGitHubTokens();
     $token = $all_tokens[array_rand($all_tokens)];
-    $headers = array(
+    $headers = [
         "Authorization: bearer $token",
         "Content-Type: application/json",
         "Accept: application/vnd.github.v4.idl",
         "User-Agent: GitHub-Readme-Streak-Stats"
-    );
-    $body = array("query" => $query);
+    ];
+    $body = ["query" => $query];
     // create curl request
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://api.github.com/graphql");
@@ -139,7 +140,6 @@ function fetchGraphQL(string $query): stdClass
         if ($obj && $obj->message) {
             throw new AssertionError("Error: $obj->message \n<!-- $response -->", 401);
         }
-        // TODO: Make the $response part get passed into a custom error and render the commented details in the SVG card generator
         throw new AssertionError("An error occurred when getting a response from GitHub.\n<!-- $response -->", 502);
     }
     return $obj;
@@ -191,7 +191,7 @@ function getContributionYears(string $user): array
 function getContributionDates(array $contributionGraphs): array
 {
     // get contributions from HTML
-    $contributions = array();
+    $contributions = [];
     $today = date("Y-m-d");
     $tomorrow = date("Y-m-d", strtotime("tomorrow"));
     foreach ($contributionGraphs as $graph) {
