@@ -40,6 +40,18 @@ return [
         "Longest Streak" => "Racha Más Larga",
         "Present" => "Presente",
     ],
+    "hi" => [
+        "Total Contributions" => "कुल योगदान",
+        "Current Streak" => "निरंतर दैनिक योगदान",
+        "Longest Streak" => "सबसे लंबा दैनिक योगदान",
+        "Present" => "आज तक",
+    ],
+    "id" => [
+        "Total Contributions" => "Total Kontribusi",
+        "Current Streak" => "Aksi Saat Ini",
+        "Longest Streak" => "Aksi Terpanjang",
+        "Present" => "Sekarang",
+    ],
     "ja" => [
         "date_format" => "[Y.]n.j",
         "Total Contributions" => "総ｺﾝﾄﾘﾋﾞｭｰｼｮﾝ数",
@@ -47,11 +59,29 @@ return [
         "Longest Streak" => "最長のストリーク",
         "Present" => "今",
     ],
+    "ko" => [
+        "Total Contributions" => "총 기여 수",
+        "Current Streak" => "현재 연속 기여 수",
+        "Longest Streak" => "최대 연속 기여 수",
+        "Present" => "현재",
+    ],
+    "nl" => [
+        "Total Contributions" => "Totale Bijdrage",
+        "Current Streak" => "Huidige Serie",
+        "Longest Streak" => "Langste Serie",
+        "Present" => "Vandaag",
+    ],
     "pt-br" => [
         "Total Contributions" => "Total de Contribuições",
         "Current Streak" => "Atual Sequência",
         "Longest Streak" => "Maior Sequência",
-        "Present" => "Atualmente",
+        "Present" => "Presente",
+    ],
+    "ru" => [
+        "Total Contributions" => "Общий вклад",
+        "Current Streak" => "Теущая серия",
+        "Longest Streak" => "Самая длинная серия",
+        "Present" => "Сейчас",
     ],
     "tr" => [
         "Total Contributions" => "Toplam Katkı",
