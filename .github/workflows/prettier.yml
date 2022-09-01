@@ -1,22 +1,43 @@
 name: Format with Prettier
 
 on:
-  pull_request:
   push:
     branches:
       - main
+  pull_request:
+    paths:
+      - "**.php"
+      - "**.md"
+      - "**.js"
+      - "**.css"
 
 jobs:
   prettier:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
+      - name: Checkout Pull Request
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Checkout Push
+        if: ${{ github.event_name != 'pull_request' }}
         uses: actions/checkout@v3
 
+      - name: Install prettier and plugin-php
+        run: npm install --global prettier @prettier/plugin-php
+
+      - name: Lint with Prettier
+        continue-on-error: true
+        run: composer lint
+
       - name: Prettify code
-        uses: creyD/prettier_action@v4.2
+        run: composer lint-fix
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
         with:
-          prettier_options: "--write **/*.{php,md,js,css} !**/*.min.js --print-width 120"
-          commit_message: "style: Formatted code with Prettier"
-          prettier_plugins: "@prettier/plugin-php"
+          message: "style: Formatted code with Prettier"
+          default_author: github_actions

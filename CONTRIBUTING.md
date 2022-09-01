@@ -22,7 +22,7 @@ You can refer to the following articles on the basics of Git and GitHub in case 
 
 - [PHP 8.1+](https://www.apachefriends.org/index.html)
 - [Composer](https://getcomposer.org)
-- [Imagick](https://www.php.net/imagick)
+- [Inkscape](https://inkscape.org) (for PNG rendering)
 
 #### Linux
 
@@ -30,6 +30,7 @@ You can refer to the following articles on the basics of Git and GitHub in case 
 sudo apt-get install php
 sudo apt-get install php-curl
 sudo apt-get install composer
+sudo apt-get install inkscape
 ```
 
 #### Windows
@@ -83,6 +84,18 @@ Run the following command to run the PHPUnit test script which will verify that 
 
 ```bash
 composer test
+```
+
+## Linting
+
+This project uses Prettier for formatting PHP, Markdown, JavaScript and CSS files.
+
+```bash
+# Run prettier and show the files that need to be fixed
+composer lint
+
+# Run prettier and fix the files
+composer lint-fix
 ```
 
 ## Submitting Contributions 👨‍💻

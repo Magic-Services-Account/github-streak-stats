@@ -43,12 +43,12 @@ To enable a theme, append `&theme=` followed by the theme name to the end of the
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=DenverCoder1&theme=dark)](https://git.io/streak-stats)
 ```
 
-|     Theme      |                               Preview                                |
-| :------------: | :------------------------------------------------------------------: |
-|   `default`    |             ![default](https://i.imgur.com/IaTuYdS.png)              |
-|     `dark`     |               ![dark](https://i.imgur.com/bUrsjlp.png)               |
-| `highcontrast` |           ![highcontrast](https://i.imgur.com/ovrVrTY.png)           |
-|  More themes!  | **🎨 [See a list of all available themes](./docs/themes/README.md)** |
+|     Theme      |                            Preview                            |
+| :------------: | :-----------------------------------------------------------: |
+|   `default`    |          ![default](https://i.imgur.com/IaTuYdS.png)          |
+|     `dark`     |           ![dark](https://i.imgur.com/bUrsjlp.png)            |
+| `highcontrast` |       ![highcontrast](https://i.imgur.com/ovrVrTY.png)        |
+|  More themes!  | **🎨 [See a list of all available themes](./docs/themes.md)** |
 
 > If you have come up with a new theme you'd like to share with others, open an issue to add it!
 
@@ -61,7 +61,7 @@ If the `theme` parameter is specified, any color customizations specified will b
 |     Parameter     |                    Details                     |                              Example                              |
 | :---------------: | :--------------------------------------------: | :---------------------------------------------------------------: |
 |      `user`       |       GitHub username to show stats for        |                          `DenverCoder1`                           |
-|      `theme`      |    The theme to apply (Default: `default`)     |      `dark`, `radical`, etc. [🎨➜](./docs/themes/README.md)       |
+|      `theme`      |    The theme to apply (Default: `default`)     |          `dark`, `radical`, etc. [🎨➜](./docs/themes.md)          |
 |   `hide_border`   | Make the border transparent (Default: `false`) |                         `true` or `false`                         |
 |   `background`    |                Background color                |             **hex code** without `#` or **css color**             |
 |     `border`      |                  Border color                  |             **hex code** without `#` or **css color**             |
@@ -159,7 +159,7 @@ Make sure your request is meaningful and you have tested the app locally before 
 
 - [PHP 8.1+](https://www.apachefriends.org/index.html)
 - [Composer](https://getcomposer.org)
-- [Imagick](https://www.php.net/imagick)
+- [Inkscape](https://inkscape.org) (for PNG rendering)
 
 #### Linux
 
@@ -167,6 +167,7 @@ Make sure your request is meaningful and you have tested the app locally before 
 sudo apt-get install php
 sudo apt-get install php-curl
 sudo apt-get install composer
+sudo apt-get install inkscape
 ```
 
 #### Windows
@@ -220,6 +221,18 @@ Run the following command to run the PHPUnit test script which will verify that 
 
 ```bash
 composer test
+```
+
+### Linting
+
+This project uses Prettier for formatting PHP, Markdown, JavaScript and CSS files.
+
+```bash
+# Run prettier and show the files that need to be fixed
+composer lint
+
+# Run prettier and fix the files
+composer lint-fix
 ```
 
 ## 🙋‍♂️ Support

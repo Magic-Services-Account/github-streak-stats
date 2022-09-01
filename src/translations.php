@@ -40,6 +40,12 @@ return [
         "Longest Streak" => "Racha Más Larga",
         "Present" => "Presente",
     ],
+    "fr" => [
+        "Total Contributions" => "Contributions totales",
+        "Current Streak" => "Séquence actuelle",
+        "Longest Streak" => "Plus longue séquence",
+        "Present" => "Aujourd'hui",
+    ],
     "hi" => [
         "Total Contributions" => "कुल योगदान",
         "Current Streak" => "निरंतर दैनिक योगदान",
@@ -51,6 +57,12 @@ return [
         "Current Streak" => "Aksi Saat Ini",
         "Longest Streak" => "Aksi Terpanjang",
         "Present" => "Sekarang",
+    ],
+    "it" => [
+        "Total Contributions" => "Tutti i contributi",
+        "Current Streak" => "Serie corrente",
+        "Longest Streak" => "Serie più lunga",
+        "Present" => "Presente",
     ],
     "ja" => [
         "date_format" => "[Y.]n.j",
