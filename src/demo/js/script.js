@@ -10,6 +10,8 @@ const preview = {
     hide_border: "false",
     date_format: "",
     locale: "en",
+    border_radius: "4.5",
+    mode: "daily",
   },
 
   /**

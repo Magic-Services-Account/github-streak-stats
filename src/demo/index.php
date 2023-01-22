@@ -3,7 +3,10 @@
 $THEMES = include "../themes.php";
 $TRANSLATIONS = include "../translations.php";
 // Get the keys of the first value in the translations array
-$LOCALES = array_keys($TRANSLATIONS);
+// and filter to only include locales that have an array as the value
+$LOCALES = array_filter(array_keys($TRANSLATIONS), function ($locale) use ($TRANSLATIONS) {
+    return is_array($TRANSLATIONS[$locale]);
+});
 
 $darkmode = $_COOKIE["darkmode"] ?? null;
 
@@ -12,7 +15,7 @@ $darkmode = $_COOKIE["darkmode"] ?? null;
  * @param string $str The camelCase string
  * @return string The skewer-case string
  */
-function camel_to_skewer(string $str): string
+function camelToSkewer(string $str): string
 {
     return preg_replace_callback(
         "/([A-Z])/",
@@ -86,7 +89,7 @@ function camel_to_skewer(string $str): string
                         $dataAttrs = "";
                         foreach ($options as $key => $value) {
                             // convert key from camelCase to skewer-case
-                            $key = camel_to_skewer($key);
+                            $key = camelToSkewer($key);
                             // remove '#' from hex color value
                             $value = preg_replace("/^\#/", "", $value);
                             // add data attribute
@@ -102,12 +105,15 @@ function camel_to_skewer(string $str): string
                     <option>false</option>
                     <option>true</option>
                 </select>
+                
+                <label for="border_radius">Border Radius</label>
+                <input class="param" type="number" id="border_radius" name="border_radius" placeholder="4.5" value="4.5" step="0.1">
 
                 <label for="locale">Locale</label>
                 <select class="param" id="locale" name="locale">
                     <?php foreach ($LOCALES as $locale): ?>
                         <option value="<?php echo $locale; ?>">
-                            <?php $display = Locale::getDisplayLanguage($locale, $locale); ?>
+                            <?php $display = Locale::getDisplayName($locale, $locale); ?>
                             <?php echo $display . " (" . $locale . ")"; ?>
                         </option>
                     <?php endforeach; ?>
@@ -122,6 +128,12 @@ function camel_to_skewer(string $str): string
                     <option value="j/n[/Y]">10/8/2016</option>
                     <option value="n/j[/Y]">8/10/2016</option>
                     <option value="[Y.]n.j">2016.8.10</option>
+                </select>
+
+                <label for="mode">Streak Mode</label>
+                <select class="param" id="mode" name="mode">
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
                 </select>
 
                 <details class="advanced">
